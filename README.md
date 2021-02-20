@@ -17,3 +17,7 @@ Placement preparation for session 2021/22
 Use clang-format before pushing the code.
 
 - vscode : [clang-format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+
+For leetcode problems use this extension:
+
+- [vscode](https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode)
