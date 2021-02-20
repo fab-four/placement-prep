@@ -4,6 +4,16 @@ Placement preparation for session 2021/22
 
 ## Contribution
 
+### Commit Style
+
+Please read [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+If you are adding any solution to a problem follow this style:
+
+```git
+github_username: commit_message
+Example: singalhimanshu: add leetcode solution 102
+```
+
 ```cpp
 // @author: author_name
 // @user: user_name
