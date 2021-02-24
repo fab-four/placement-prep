@@ -36,12 +36,12 @@ public:
       cur_level_val.reserve(q_size);
       for (size_t i = 0; i < q_size; i++) {
         TreeNode *front = q.front();
+        q.pop();
         if (front->left)
           q.emplace(front->left);
         if (front->right)
           q.emplace(front->right);
         cur_level_val.emplace_back(front->val);
-        q.pop();
       }
       level_order.emplace_back(std::move(cur_level_val));
     }
