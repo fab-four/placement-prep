@@ -20,12 +20,12 @@
  */
 
 ListNode *reverseListRec(ListNode *prev, ListNode *cur) {
-  if (cur) {
-    auto head = reverseListRec(cur, cur->next);
-    cur->next = prev;
-    return head;
+  if (cur == nullptr) {
+    return prev;
   }
-  return prev;
+  ListNode *next = cur->next;
+  cur->next = prev;
+  return reverseListRec(cur, next);
 }
 
 ListNode *reverseListIt(ListNode *head) {
