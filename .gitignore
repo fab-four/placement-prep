@@ -1,3 +1,8 @@
+# ignore files without extension
+*
+!/**/
+!*.*
+
 # Created by https://www.toptal.com/developers/gitignore/api/c++
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++
 
@@ -42,7 +47,3 @@
 
 .vscode
 # End of https://www.toptal.com/developers/gitignore/api/c++
-# ignore files without extension
-*
-!/**/
-!*.*
