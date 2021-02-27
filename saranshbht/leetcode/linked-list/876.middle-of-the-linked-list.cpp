@@ -17,17 +17,11 @@
 class Solution {
 public:
   ListNode *middleNode(ListNode *head) {
-    int total = 0;
-    ListNode *current = head;
-    while (current) {
-      total++;
-      current = current->next;
+    ListNode *slow = head, *fast = head;
+    while (fast && fast->next) {
+      fast = fast->next->next;
+      slow = slow->next;
     }
-    total >>= 1;
-    current = head;
-    while (total--) {
-      head = head->next;
-    }
-    return head;
+    return slow;
   }
 };
