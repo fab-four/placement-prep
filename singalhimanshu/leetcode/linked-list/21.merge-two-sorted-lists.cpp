@@ -42,15 +42,10 @@ public:
       }
       merged_list_ptr = merged_list_ptr->next;
     }
-    while (l1 != nullptr) {
+    if (l1) {
       merged_list_ptr->next = l1;
-      merged_list_ptr = merged_list_ptr->next;
-      l1 = l1->next;
-    }
-    while (l2 != nullptr) {
+    } else if (l2) {
       merged_list_ptr->next = l2;
-      merged_list_ptr = merged_list_ptr->next;
-      l2 = l2->next;
     }
     return merged_list_head->next;
   }
