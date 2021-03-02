@@ -34,40 +34,42 @@ public:
     // return res;
 
     // Iterative 1
-    // vector<int> res;
-    // stack<pair<TreeNode *, bool>> st;
-    // if (root)
-    //   st.push({root, false});
-    // while (st.size()) {
-    //   pair<TreeNode *, bool> &node = st.top();
-    //   if (node.second) {
-    //     res.push_back(node.first->val);
-    //     st.pop();
-    //   } else {
-    //     node.second = true;
-    //     if (node.first->right)
-    //       st.push({node.first->right, false});
-    //     if (node.first->left)
-    //       st.push({node.first->left, false});
-    //   }
-    // }
-    // return res;
-
-    // Iterative 2
     vector<int> res;
-    stack<TreeNode *> st;
+    stack<pair<TreeNode *, bool>> st;
     if (root)
-      st.push(root);
+      st.push({root, false});
     while (st.size()) {
-      TreeNode *node = st.top();
-      st.pop();
-      res.push_back(node->val);
-      if (node->left)
-        st.push(node->left);
-      if (node->right)
-        st.push(node->right);
+      pair<TreeNode *, bool> &node = st.top();
+      if (node.second) {
+        res.push_back(node.first->val);
+        st.pop();
+      } else {
+        node.second = true;
+        if (node.first->right)
+          st.push({node.first->right, false});
+        if (node.first->left)
+          st.push({node.first->left, false});
+      }
     }
-    reverse(res.begin(), res.end());
     return res;
+
+    // Works here but won't work for every use case
+    // https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization/743080
+    // Iterative 2
+    // vector<int> res;
+    // stack<TreeNode *> st;
+    // if (root)
+    //   st.push(root);
+    // while (st.size()) {
+    //   TreeNode *node = st.top();
+    //   st.pop();
+    //   res.push_back(node->val);
+    //   if (node->left)
+    //     st.push(node->left);
+    //   if (node->right)
+    //     st.push(node->right);
+    // }
+    // reverse(res.begin(), res.end());
+    // return res;
   }
 };
