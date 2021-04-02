@@ -27,7 +27,7 @@ Example: singalhimanshu: add leetcode solution 102
 */
 ```
 
-**Note**: If you are using vscode you can define a custom snippet for the language in you solve the problems:
+**Note**: If you are using vscode you can define a custom snippet for the language in which you solve the problems:
 
 ```json
 "add header": {
