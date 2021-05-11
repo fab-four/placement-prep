@@ -23,9 +23,6 @@ vector<int> Solution::flip(string A) {
             num = -1;
         if (currentMax >= 0) {
             currentMax += num;
-            if (currentStart == -1) {
-                currentStart = i;
-            }
         } else {
             currentStart = i;
             currentMax = num;

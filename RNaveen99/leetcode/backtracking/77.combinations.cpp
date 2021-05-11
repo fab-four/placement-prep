@@ -17,6 +17,7 @@ class Solution {
     void combineUtil(int n, int start, vector<int> &combination, int k) {
         if (combination.size() == k) {
             allCombinations.emplace_back(combination);
+            return;
         }
         for (int i = start; i <= n; i++) {
             combination.emplace_back(i);
