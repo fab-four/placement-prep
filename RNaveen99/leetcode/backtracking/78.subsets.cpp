@@ -39,3 +39,25 @@ class Solution {
         }
     }
 };
+
+class Solution {
+    vector<vector<int>> allSubsets;
+
+    public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> subset;
+        subsetsUtil(nums, 0, subset);
+        return allSubsets;
+    }
+    void subsetsUtil(vector<int>&nums, int start, vector<int> & subset) {
+        if (start == nums.size()){
+            allSubsets.emplace_back(subset);
+            return;
+        }
+        subset.emplace_back(nums[start]);
+        subsetsUtil(nums, start + 1, subset);
+        subset.pop_back();
+        subsetsUtil(nums, start + 1, subset);
+
+    }
+};

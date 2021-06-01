@@ -77,3 +77,30 @@ class Solution {
         }
     }
 };
+
+class Solution {
+  public:
+    vector<int> topKFrequent(vector<int> &nums, int k) {
+        if (k == nums.size())
+            return nums;
+        unordered_map<int, int> frequency;
+        for (int ele : nums) {
+            frequency[ele]++;
+        }
+
+        vector<pair<int, vector<int>>> buckets(nums.size() + 1);
+        for (auto ele : frequency) {
+            buckets[ele.second].second.push_back(ele.first);
+        }
+
+        vector<int> answer;
+        for (int i = buckets.size() - 1; i >= 0; i--) {
+            for (int ele : buckets[i].second) {
+                answer.push_back(ele);
+                if (answer.size() == k)
+                    return answer;
+            }
+        }
+        return answer;
+    }
+};
