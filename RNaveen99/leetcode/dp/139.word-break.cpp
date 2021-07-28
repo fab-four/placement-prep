@@ -48,7 +48,7 @@ class Solution {
             for (int j = 0; j < i; ++j) {
                 if (dp[j] && words.count(s.substr(j, i - j))) {
                     dp[i] = 1;
-                    break;
+                    // break;
                 }
             }
         }

@@ -73,7 +73,8 @@ class Solution {
         int mid = 0;
         while (left < right) {
             mid = left + (right - left) / 2;
-            if (x - arr[mid] > arr[mid + k] - x) {
+            int midSlidingWindow = (arr[mid] + arr[mid + k]) >> 1;
+            if (x > midSlidingWindow) {
                 left = mid + 1;
             } else {
                 right = mid;

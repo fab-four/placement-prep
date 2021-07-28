@@ -44,6 +44,54 @@ class Solution {
     }
 };
 
+// calculate new lower & upper bound
+class Solution {
+  public:
+    int kthSmallest(vector<vector<int>> &matrix, int k) {
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+
+        int left = matrix[0][0];
+        int right = matrix[rows - 1][cols - 1];
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            int minimum = left;
+            int maximum = right;
+            // count is the number of elements less or equal to mid
+            int count = countLessThanEqual(matrix, mid, minimum, maximum);
+
+            if (count == k) {
+                return minimum;
+            }
+            if (count < k) {
+                left = maximum;
+            } else {
+                right = minimum;
+            }
+        }
+        return left;
+    }
+
+    int countLessThanEqual(vector<vector<int>> &matrix, int mid, int &minimum, int &maximum) {
+        int row = matrix.size() - 1;
+        int col = 0;
+        int count = 0;
+        while (row >= 0 && col < matrix[0].size()) {
+            if (matrix[row][col] <= mid) {
+                minimum = max(minimum, matrix[row][col]);
+                count += row + 1;
+                col++;
+            } else {
+                maximum = min(maximum, matrix[row][col]);
+                row--;
+            }
+        }
+        return count;
+    }
+};
+
 class Solution {
   public:
     struct comparator {
